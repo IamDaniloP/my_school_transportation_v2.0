@@ -5,6 +5,7 @@ import com.danilopereira.my_school_transportation_v20.domain.enums.Transportatio
 import com.danilopereira.my_school_transportation_v20.domain.exceptions.InvalidShiftException;
 import com.danilopereira.my_school_transportation_v20.domain.exceptions.InvalidTransportationTypeException;
 
+import java.util.List;
 import java.util.UUID;
 
 public class Student {
@@ -17,9 +18,10 @@ public class Student {
     private Responsible responsible;
     private Address address;
     private Conductor conductor;
-    private Payment payment;
+    private List<Payment> paymentList;
 
-    public Student(UUID id, String name, String school, String grade, String shift, String transportationType, Responsible responsible, Address address, Conductor conductor, Payment payment) {
+    // Permite criar o estudante sem nenhum pagamento vinculado a ele.
+    public Student(UUID id, String name, String school, String grade, String shift, String transportationType, Responsible responsible, Address address, Conductor conductor) {
         setId(id);
         setName(name);
         setSchool(school);
@@ -29,7 +31,19 @@ public class Student {
         setResponsible(responsible);
         setAddress(address);
         setConductor(conductor);
-        setPayment(payment);
+    }
+
+    public Student(UUID id, String name, String school, String grade, String shift, String transportationType, Responsible responsible, Address address, Conductor conductor, List<Payment> paymentList) {
+        setId(id);
+        setName(name);
+        setSchool(school);
+        setGrade(grade);
+        setShift(shift);
+        setTransportationType(transportationType);
+        setResponsible(responsible);
+        setAddress(address);
+        setConductor(conductor);
+        setPaymentList(paymentList);
     }
 
     public UUID getId() {
@@ -37,11 +51,8 @@ public class Student {
     }
 
     public void setId(UUID id) {
-        if (id == null) {
-            this.id = UUID.randomUUID();
-        } else {
-            this.id = id;
-        }
+        if (id == null) this.id = UUID.randomUUID();
+        else this.id = id;
     }
 
     public String getName() {
@@ -49,9 +60,7 @@ public class Student {
     }
 
     public void setName(String name) {
-        if (name.isEmpty()) {
-            throw new IllegalArgumentException("Name cannot be empty");
-        }
+        if (name.isEmpty()) throw new IllegalArgumentException("Name cannot be empty");
         this.name = name;
     }
 
@@ -60,9 +69,7 @@ public class Student {
     }
 
     public void setSchool(String school) {
-        if (school.isEmpty()) {
-            throw new IllegalArgumentException("School cannot be empty");
-        }
+        if (school.isEmpty()) throw new IllegalArgumentException("School cannot be empty");
         this.school = school;
     }
 
@@ -71,9 +78,7 @@ public class Student {
     }
 
     public void setGrade(String grade) {
-        if (grade.isEmpty()) {
-            throw new IllegalArgumentException("Grade cannot be empty");
-        }
+        if (grade.isEmpty()) throw new IllegalArgumentException("Grade cannot be empty");
         this.grade = grade;
     }
 
@@ -103,9 +108,7 @@ public class Student {
     }
 
     public void setResponsible(Responsible responsible) {
-        if (responsible == null) {
-            throw new IllegalArgumentException("Responsible cannot be null");
-        }
+        if (responsible == null) throw new IllegalArgumentException("Responsible cannot be null");
         this.responsible = responsible;
     }
 
@@ -114,9 +117,7 @@ public class Student {
     }
 
     public void setAddress(Address address) {
-        if (address == null) {
-            throw new IllegalArgumentException("Address cannot be null");
-        }
+        if (address == null) throw new IllegalArgumentException("Address cannot be null");
         this.address = address;
     }
 
@@ -125,20 +126,15 @@ public class Student {
     }
 
     public void setConductor(Conductor conductor) {
-        if (conductor == null) {
-            throw new IllegalArgumentException("Conductor cannot be null");
-        }
+        if (conductor == null) throw new IllegalArgumentException("Conductor cannot be null");
         this.conductor = conductor;
     }
 
-    public Payment getPayment() {
-        return payment;
+    public List<Payment> getPaymentList() {
+        return paymentList;
     }
 
-    public void setPayment(Payment payment) {
-        if (payment == null) {
-            throw new IllegalArgumentException("Payment cannot be null");
-        }
-        this.payment = payment;
+    public void setPaymentList(List<Payment> paymentList) {
+        this.paymentList = paymentList;
     }
 }
