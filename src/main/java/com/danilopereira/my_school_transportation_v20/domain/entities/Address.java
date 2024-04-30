@@ -27,11 +27,8 @@ public class Address {
     }
 
     public void setId(UUID id) {
-        if (id == null) {
-            this.id = UUID.randomUUID();
-        } else {
-          this.id = id;
-        }
+        if (id == null) this.id = UUID.randomUUID();
+        else this.id = id;
     }
 
     public String getCity() {
@@ -39,9 +36,7 @@ public class Address {
     }
 
     public void setCity(String city) {
-        if (city.isEmpty()) {
-            throw new IllegalArgumentException("City cannot be empty.");
-        }
+        if (city.isEmpty()) throw new IllegalArgumentException("City cannot be empty.");
         this.city = city;
     }
 
@@ -50,9 +45,7 @@ public class Address {
     }
 
     public void setDistrict(String district) {
-        if (district.isEmpty()) {
-            throw new IllegalArgumentException("District cannot be empty.");
-        }
+        if (district.isEmpty()) throw new IllegalArgumentException("District cannot be empty.");
         this.district = district;
     }
 
@@ -61,9 +54,7 @@ public class Address {
     }
 
     public void setStreet(String street) {
-        if (street.isEmpty()) {
-            throw new IllegalArgumentException("Street cannot be empty.");
-        }
+        if (street.isEmpty()) throw new IllegalArgumentException("Street cannot be empty.");
         this.street = street;
     }
 
@@ -72,11 +63,8 @@ public class Address {
     }
 
     public void setReferencePoint(String referencePoint) {
-        if (referencePoint.isEmpty()) {
-            this.referencePoint = "S/ Ref";
-        } else {
-            this.referencePoint = referencePoint;
-        }
+        if (referencePoint.isEmpty()) this.referencePoint = "S/ Ref";
+        else this.referencePoint = referencePoint;
     }
 
     public String getHouseNumber() {
@@ -84,11 +72,8 @@ public class Address {
     }
 
     public void setHouseNumber(String houseNumber) {
-        if (houseNumber.isEmpty()) {
-            this.houseNumber = "S/ Num";
-        } else {
-            this.houseNumber = houseNumber;
-        }
+        if (houseNumber.isEmpty()) this.houseNumber = "S/ Num";
+        else this.houseNumber = houseNumber;
     }
 
     public Student getStudent() {
@@ -96,9 +81,7 @@ public class Address {
     }
 
     public void setStudent(Student student) {
-        if (student == null) {
-            throw new IllegalArgumentException("Student cannot be null");
-        }
+        if (student == null) throw new IllegalArgumentException("Student cannot be null");
         this.student = student;
     }
 }
