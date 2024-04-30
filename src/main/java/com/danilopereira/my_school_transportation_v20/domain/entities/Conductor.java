@@ -26,11 +26,8 @@ public class Conductor {
     }
 
     public void setId(UUID id) {
-        if (id == null) {
-            this.id = UUID.randomUUID();
-        } else {
-            this.id = id;
-        }
+        if (id == null) this.id = UUID.randomUUID();
+        else this.id = id;
     }
 
     public String getName() {
@@ -38,9 +35,7 @@ public class Conductor {
     }
 
     public void setName(String name) {
-        if (name.isEmpty()) {
-            throw new IllegalArgumentException("Name cannot be empty");
-        }
+        if (name.isEmpty()) throw new IllegalArgumentException("Name cannot be empty");
         this.name = name;
     }
 
@@ -49,9 +44,7 @@ public class Conductor {
     }
 
     public void setEmail(String email) {
-        if (email.isEmpty()) {
-            throw new IllegalArgumentException("Email cannot be empty");
-        }
+        if (email.isEmpty()) throw new IllegalArgumentException("Email cannot be empty");
         this.email = email;
     }
 
@@ -60,9 +53,7 @@ public class Conductor {
     }
 
     public void setCpf(String cpf) {
-        if (cpf.isEmpty()) {
-            throw new IllegalArgumentException("Cpf cannot be empty");
-        }
+        if (cpf.isEmpty()) throw new IllegalArgumentException("Cpf cannot be empty");
         this.cpf = cpf;
     }
 
@@ -71,9 +62,7 @@ public class Conductor {
     }
 
     public void setPassword(String password) {
-        if (password.isEmpty()) {
-            throw new IllegalArgumentException("Password cannot be empty");
-        }
+        if (password.isEmpty()) throw new IllegalArgumentException("Password cannot be empty");
         this.password = password;
     }
 
