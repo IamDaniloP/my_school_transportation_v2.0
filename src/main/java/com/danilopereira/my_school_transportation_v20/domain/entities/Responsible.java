@@ -23,11 +23,8 @@ public class Responsible {
     }
 
     public void setId(UUID id) {
-        if (id == null) {
-            this.id = UUID.randomUUID();
-        } else {
-            this.id = id;
-        }
+        if (id == null) this.id = UUID.randomUUID();
+        else this.id = id;
     }
 
     public String getName() {
@@ -35,9 +32,7 @@ public class Responsible {
     }
 
     public void setName(String name) {
-        if (name.isEmpty()) {
-            throw new IllegalArgumentException("Name cannot be empty");
-        }
+        if (name.isEmpty()) throw new IllegalArgumentException("Name cannot be empty");
         this.name = name;
     }
 
@@ -46,9 +41,7 @@ public class Responsible {
     }
 
     public void setEmail(String email) {
-        if (email.isEmpty()) {
-            throw new IllegalArgumentException("Email cannot be empty");
-        }
+        if (email.isEmpty()) throw new IllegalArgumentException("Email cannot be empty");
         this.email = email;
     }
 
@@ -57,9 +50,7 @@ public class Responsible {
     }
 
     public void setPhone(String phone) {
-        if (phone.isEmpty()) {
-            throw new IllegalArgumentException("Phone cannot be empty");
-        }
+        if (phone.isEmpty()) throw new IllegalArgumentException("Phone cannot be empty");
         this.phone = phone;
     }
 
@@ -68,9 +59,7 @@ public class Responsible {
     }
 
     public void setStudent(Student student) {
-        if (student == null) {
-            throw new IllegalArgumentException("Student cannot be null");
-        }
+        if (student == null) throw new IllegalArgumentException("Student cannot be null");
         this.student = student;
     }
 }
